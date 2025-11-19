@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smith's Pave & Seal | Asphalt & Winter Services in Minnesota</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smith's Pave & Seal provides asphalt maintenance, sealcoating, and winter services like snow shoveling, roof raking, and gutter cleaning in Minnesota." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --accent: #facc15;
+      --accent-soft: #fef9c3;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card-bg: #020617;
+      --border-subtle: #1e293b;
+      --max-width: 1100px;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(26px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 30% 30%, #fef3c7, #facc15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.8), 0 12px 25px rgba(0, 0, 0, 0.55);
+      font-weight: 800;
+      color: #1f2933;
+      letter-spacing: -0.08em;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      display: none;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      border-color: rgba(250, 204, 21, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: #1f2937;
+      padding: 0.5rem 0.95rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(250, 204, 21, 0.25);
+      border: 1px solid rgba(202, 138, 4, 0.5);
+      white-space: nowrap;
+    }
+
+    .nav-cta small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.9;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.75rem 1.25rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      margin-bottom: 1.1rem;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+    }
+
+    .badge span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 3.4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 strong {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-highlight {
+      font-weight: 500;
+      color: var(--accent-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-full);
+      padding: 0.65rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #facc15, #f97316);
+      color: #111827;
+      box-shadow: 0 20px 40px rgba(251, 191, 36, 0.25);
+      border-color: rgba(217, 119, 6, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 50px rgba(251, 191, 36, 0.32);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: rgba(249, 250, 251, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note strong {
+      color: var(--accent-soft);
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.05), transparent 55%), linear-gradient(to bottom right, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 130% -10%, rgba(250, 204, 21, 0.45), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .hero-card-pill {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(15, 23, 42, 1);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+      white-space: nowrap;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-mini-card {
+      border-radius: 16px;
+      background: linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 0.75rem 0.8rem;
+    }
+
+    .hero-mini-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-mini-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .pill-accent {
+      background: rgba(251, 191, 36, 0.18);
+      border-color: rgba(250, 204, 21, 0.82);
+      color: #fef9c3;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(148, 163, 184, 0.6);
+      padding-top: 0.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .services-section,
+    .about-section,
+    .contact-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2.5rem;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), #020617);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.3rem;
+      padding-left: 0.1rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 0.35rem;
+      font-size: 0.9rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    .chip.hot {
+      border-color: rgba(250, 204, 21, 0.9);
+      color: var(--accent-soft);
+      background: rgba(24, 24, 27, 0.96);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+
+    .contact-card {
+      background: linear-gradient(to bottom right, #020617, #020617);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 1);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .contact-value a {
+      color: var(--accent-soft);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-value a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(250, 204, 21, 0.9);
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.4);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .small-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 0.9rem 1.25rem 1.3rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      background: #020617;
+    }
+
+    footer span {
+      color: var(--accent-soft);
+    }
+
+    @media (min-width: 720px) {
+      nav a {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2.1rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-cta small {
+        display: none;
+      }
+
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-inline: 1rem;
+      }
+
+      .services-section,
+      .about-section,
+      .contact-section {
+        padding-inline: 1rem;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div>
+            <div class="brand-title">Smith's Pave &amp; Seal</div>
+            <div class="brand-subtitle">Asphalt &amp; Winter Property Services</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="nav-cta" href="tel:5551234567"><!-- TODO: update phone --> (218)866-2966
+          <div>
+            <small>Call or text</small><br />
+            <strong><!-- TODO: update phone display --> (218) 866-2966</strong>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Winter-ready • Locally owned in Minnesota</span>
+          </div>
+          <h1>
+            Asphalt care in summer,
+            <strong>winter protection</strong> when it snows.
+          </h1>
+          <p>
+            Smith's Pave &amp; Seal keeps your driveway and property in top shape
+            all year. From sealcoating and asphalt maintenance in the warm
+            months to <span class="hero-highlight">snow shoveling, roof raking, gutter
+            cleaning, and handyman work</span> in the winter, you get one reliable
+            local contact who actually shows up.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="tel:5551234567"><!-- TODO: update phone --> (218)866-296
+              📞 Call now for a free quote
+            </a>
+            <a class="btn-ghost" href="#contact">
+              ✉️ Request a call-back
+            </a>
+          </div>
+          <div class="hero-note">
+            Serving homeowners in
+            <strong><!-- TODO: update your city --> Brainerd, MN</strong> and nearby areas.
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Service highlights">
+          <div class="hero-card-inner">
+            <div class="hero-card-header">
+              <div>
+                <div class="hero-card-title">This winter, we can help with:</div>
+              </div>
+              <div class="hero-card-pill">Winter 2025</div>
+            </div>
+
+            <div class="hero-card-grid">
+              <div class="hero-mini-card">
+                <h3>Winter Services</h3>
+                <p>Perfect for Minnesota snow &amp; ice.</p>
+                <div class="pill-row">
+                  <span class="pill pill-accent">Snow shoveling</span>
+                  <span class="pill">Roof raking</span>
+                  <span class="pill">Gutter cleaning</span>
+                  <span class="pill">Ice dam prevention</span>
+                  <span class="pill">Holiday lights</span>
+                </div>
+              </div>
+              <div class="hero-mini-card">
+                <h3>Asphalt Care</h3>
+                <p>Protect your driveway investment.</p>
+                <div class="pill-row">
+                  <span class="pill">Sealcoating</span>
+                  <span class="pill">Crack filling</span>
+                  <span class="pill">Minor asphalt repair</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <div>Text or call today to get on the schedule before the snow hits.</div>
+              <div>Residential only • No truck plowing</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="services" class="services-section">
+        <div class="section-heading">
+          <div>
+            <h2>Winter &amp; Summer Services</h2>
+          </div>
+          <p>
+            You don’t need a different company every season. Smith's Pave &amp; Seal
+            handles asphalt in the warm months and property care when Minnesota
+            winter hits hard.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Winter: Snow &amp; Ice Services</h3>
+            <p>Flexible, hands-on help to keep your property safer and easier to use all winter long.</p>
+            <ul>
+              <li>Residential snow shoveling (driveways, walkways, steps)</li>
+              <li>End-of-driveway cleanup after city plows</li>
+              <li>Roof raking to help prevent ice dams</li>
+              <li>Spot salting/sanding of high-traffic areas</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip hot">Residential only</span>
+              <span class="chip">No truck plowing</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Winter: Roof, Gutter &amp; Extras</h3>
+            <p>Take weight off your roof and water away from your foundation before it becomes a problem.</p>
+            <ul>
+              <li>Roof raking after big snowfalls</li>
+              <li>Gutter cleaning (as weather allows)</li>
+              <li>Ice dam prevention work from the ground/ladder</li>
+              <li>Holiday light hanging &amp; take-down</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Ladder work available</span>
+              <span class="chip">Careful, detail-focused</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Interior Handyman Work</h3>
+            <p>When it’s too cold outside, we can still help you knock out indoor projects.</p>
+            <ul>
+              <li>Minor drywall repairs &amp; patching</li>
+              <li>Interior painting &amp; trim touch-ups</li>
+              <li>TV mounting &amp; fixture swaps</li>
+              <li>General small repairs and punch-list items</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Hourly or flat-rate</span>
+              <span class="chip">Small jobs welcome</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 1.2rem;"></div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Warm-Weather: Asphalt &amp; Sealcoating</h3>
+            <p>Extend the life of your driveway or small lot with professional sealcoating and maintenance.</p>
+            <ul>
+              <li>Driveway sealcoating</li>
+              <li>Crack filling &amp; minor patching</li>
+              <li>Edge cleaning &amp; prep</li>
+              <li>Clean, sharp results that boost curb appeal</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip hot">Book early for summer</span>
+              <span class="chip">Locally owned in Minnesota</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Why Homeowners Choose Smith's Pave & Seal</h3>
+            <p>One small, local company that knows your property and actually answers the phone.</p>
+            <ul>
+              <li>Owner-operated for personal service</li>
+              <li>Reliable communication &amp; honest pricing</li>
+              <li>Seasonal packages available</li>
+              <li>Flexible scheduling around storms &amp; weather</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Free estimates</span>
+              <span class="chip">Text-friendly</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="section-heading">
+          <div>
+            <h2>About Smith's Pave &amp; Seal</h2>
+          </div>
+          <p>
+            Built on real experience in sealcoating and asphalt maintenance, Smith's Pave &amp; Seal was created to
+            give Minnesota homeowners one dependable contact for both driveway care and winter help.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Local, Hands-On Service</h3>
+            <p>
+              I’m not a big franchise. I’m a local Minnesota owner who works on-site and cares about keeping your place
+              looking good and functioning safely through every season.
+            </p>
+            <p>
+              From the first snow to the first warm day of spring, the goal is simple:
+              <strong>show up, do solid work, and be someone you can call back next year.</strong>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Service Area</h3>
+            <p>
+              Smith's Pave &amp; Seal mainly serves:
+            </p>
+            <ul>
+              <li><!-- TODO: update with real city --> Brainerd, MN</li>
+              <li>Nearby neighborhoods and surrounding communities</li>
+            </ul>
+            <p class="small-text">
+              Not sure if you’re in the service area? Send a quick text with your address and what you need done.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-heading">
+          <div>
+            <h2>Get a Free Quote</h2>
+          </div>
+          <p>
+            Reach out with what you need, and we’ll talk through simple options and pricing. No pressure and no spam.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Call, Text, or Email</h3>
+            <p>Send a quick message with your address and what you’re looking for. Pictures help but aren’t required.</p>
+
+            <div class="contact-row">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">
+                <a href="tel:5551234567"><!-- TODO: update phone --> (218)866-2966
+                  
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:you@example.com"><!-- TODO: update email --> smithsretail03@gmail.com
+               
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">Typical response</div>
+              <div class="contact-value">Same day or next business day.</div>
+            </div>
+
+            <p class="small-text">
+              Winter fills up fast, especially around storms. The sooner you reach out, the easier it is to hold a spot
+              for you on the schedule.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Quick Contact Form</h3>
+            <p>Prefer email? Use this form and it will open in your email app so you can send details.</p>
+
+            <form action="mailto:you@example.com" method="POST" enctype="text/plain"><!-- TODO: update email --> smithsretail03@gmail.com
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="Name" type="text" placeholder="Your name" required />
+              </div>
+
+              <div>
+                <label for="address">Address or City</label>
+                <input id="address" name="Address" type="text" placeholder="Your address or area" required />
+              </div>
+
+              <div>
+                <label for="service">What do you need done?</label>
+                <textarea id="service" name="Services" placeholder="Example: snow shoveling + roof raking for 2-car driveway"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary">Open email to send</button>
+              <div class="small-text">
+                This button opens your default email app with the info filled in. You can edit before sending.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        &copy; <span id="year"></span> Smith's Pave &amp; Seal. All rights reserved. Residential-focused asphalt &amp; winter
+        services in Minnesota.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
